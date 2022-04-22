@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Select payment type"
+        android:text="Payment Details"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,33 +20,68 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/totalPrice"
-        android:layout_width="0dp"
+    <RelativeLayout
+        android:id="@+id/valueBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_light"
-        android:text="Total Price : "
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:layout_marginVertical="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/head" />
+        app:layout_constraintTop_toBottomOf="@id/head">
+
+        <TextView
+            android:id="@+id/totalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginVertical="5dp"
+            android:fontFamily="@font/poppins_light"
+            android:text="Total Price : "
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
 
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="2dp"
+            android:hint="0"
+            android:layout_toEndOf="@id/totalPrice" />
+
+    </RelativeLayout>
 
 
-
-
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="0dp"
+    <RelativeLayout
+        android:id="@+id/modeBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/totalPrice" />
+        app:layout_constraintTop_toBottomOf="@id/valueBox">
 
+        <TextView
+            android:id="@+id/paymentMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginVertical="5dp"
+            android:fontFamily="@font/poppins_light"
+            android:text="Mode : "
+
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="3dp"
+            android:layout_toEndOf="@id/paymentMode"
+            />
+    </RelativeLayout>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/proceed"
@@ -57,7 +92,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinner1">
+        app:layout_constraintTop_toBottomOf="@id/modeBox">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

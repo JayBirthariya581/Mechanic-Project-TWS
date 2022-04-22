@@ -158,7 +158,7 @@ public class ServiceDetailActivity extends AppCompatActivity {
                     String totalPrice = snapshot.child("vehicles").child(serviceDetails.getVehicleID()).child("services")
                             .child(serviceDetails.getServiceID()).child("payment").child("price").getValue(String.class);
 
-                    pbind.totalPrice.setText("Total Price : " + totalPrice);
+                    //pbind.price.setText("Total Price : " + totalPrice);
 
 
                     pbind.proceed.setOnClickListener(new View.OnClickListener() {
@@ -176,7 +176,7 @@ public class ServiceDetailActivity extends AppCompatActivity {
                                             if (task.isSuccessful()) {
 
                                                 HashMap<String, Object> updated_details = new HashMap<>();
-                                                PaymentHelper paymentHelper = new PaymentHelper(totalPrice, pbind.spinner1.getSelectedItem().toString(), "Done");
+                                                PaymentHelper paymentHelper = new PaymentHelper(pbind.price.getText().toString(), pbind.spinner1.getSelectedItem().toString(), "Done");
                                                 updated_details.put("status", "Done");
                                                 updated_details.put("payment", paymentHelper);
 
